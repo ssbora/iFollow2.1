@@ -1,0 +1,15 @@
+﻿@model Wad.iFollow.Web.Models.WallPostsModel
+@{
+    ViewBag.Title = "MainPage";
+}
+    
+<div style="background-color:burlywood">
+    <div class="input-group">
+        <input type="text" class="form-control" style="width:160px;float:right">
+        <span class="input-group-btn">
+        <button class="btn btn-primary" style="margin-top:5px;margin-bottom:5px">Search</button>      
+        <button class ="btn btn-danger" style="margin-top:5px;margin-bottom:5px" type="submit" value="Log out">Logout</button>
+        </span>
+    </div><!-- /input-group -->
+</div>
+@Html.Partial("~/Views/Wall/_WallPosts.cshtml", @Model)

@@ -1,0 +1,54 @@
+﻿@model Wad.iFollow.Web.Models.ProfileModel
+@{
+    ViewBag.Title = "Profile Page";
+}
+
+
+<br/>
+
+<!--Impartim partea superioara a ecranului in col-md-7 si col-md-5-->
+ 
+<div >
+    <div class="row">
+        
+                <div class="col-md-7" ">
+                    <br />
+                    <div class ="col-md-2"></div> 
+                    <img src="Images/placeholderProfile.jpg" class="col-md-3 fileupload-preview thumbnail" style="height: 200px;"/>
+                    <br/><br/><br/>
+                    <div class ="col-md-1"></div> 
+                    <textarea class="col-md-5"  readonly="readonly" rows="3" style="background-color:#eaeaea; text-align:left; font-size:medium " placeholder="@Model.userName says: Hello, world!"></textarea>
+                    <div class ="col-md-12" style="height:150px"></div> <!--Empty div to leave blank space-->
+                    <div class ="col-md-4"></div> 
+                 </div>
+
+                 <div class="col-md-5" >
+                     <div class ="col-md-12" style="height: 50px"></div> <!--Empty div to leave blank space-->
+                     <div class="col-md-1"></div>
+                     <div class="col-md-1" ><div class="beautifulFont">@Model.postsCount Posts</div></div>
+                     <div class="col-md-1"></div>
+                     <div class="col-md-1" ><div class="beautifulFont">@Model.followersCount Followers</div></div>
+                     <div class="col-md-2"></div>
+                     <div class="col-md-1" ><div class="beautifulFont">@Model.followedCount Following</div></div>
+                     <div class ="col-md-12" style="height:100px"></div> <!--Empty div to leave blank space-->
+                 </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+
+        <div class="col-md-4"></div>
+        <p class="beautifulFont" style="text-align: center">Posts</p>
+
+        @foreach(var item in @Model.elements.wallElements)
+        {
+            <div class="col-md-4"></div>
+            <div class="col-md-12"><img  style="width:500px; height:auto" src="@Url.Content(@item.Path)"/></div>
+            <div class="col-md-4"></div>
+            <p class="beautifulFont">@item.Message</p>
+
+            <div class="col-md-12" style="height:25px" ></div>
+        }
+    </div>
+</div>
